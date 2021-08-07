@@ -12,12 +12,19 @@ const todoSlice = createSlice({
     reducers: {
         saveTodo: (state, action) => {
             state.todoList.push(action.payload)
+        },
+        setCheck: (state, action) => {
+            state.todoList.map(item => {
+                if (action.payload === item.id) {
+                    item.done = !item.done
+                }
+            })
         }
     }
 });
 
 export const {
-    saveTodo
+    saveTodo, setCheck
 } = todoSlice.actions
 
 export const selectTodoList = state => (
