@@ -1,10 +1,11 @@
 import React from 'react'
 import { Checkbox } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { setCheck } from '../features/todoSlice'
+import { setCheck, removeTodo } from '../features/todoSlice'
 
 import './../css/todoItem.css'
 import { identifier } from '@babel/types'
+import DeleteButton from './DeleteButton'
 
 
 const TodoItem = ({ name, done, id }) => {
@@ -24,6 +25,7 @@ const TodoItem = ({ name, done, id }) => {
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
             />            {/* name */}
             <p className={done ? "todoItem--done" : undefined}>{name}</p>
+            <DeleteButton id={id} />
         </div>
     )
 }

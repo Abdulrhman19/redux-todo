@@ -1,0 +1,13 @@
+.delete-btn > button {
+    background-color: tomato;
+    color: #fff;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.delete-btn > button:hover {
+    font-weight: bold;
+    color: tomato;
+    background-color: #fff;
+    border: 1px solid tomato;
+}

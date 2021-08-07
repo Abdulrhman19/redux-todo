@@ -16,7 +16,16 @@ const todoSlice = createSlice({
         setCheck: (state, action) => {
             state.todoList.map(item => {
                 if (action.payload === item.id) {
+                    console.log(action);
                     item.done = !item.done
+                }
+            })
+        },
+        removeTodo: (state, action) => {
+            state.todoList.map(item => {
+                if(action.payload === item.id) {
+                    const index = state.todoList.indexOf(item)
+                    state.todoList.splice(index, 1)
                 }
             })
         }
@@ -24,7 +33,7 @@ const todoSlice = createSlice({
 });
 
 export const {
-    saveTodo, setCheck
+    saveTodo, setCheck, removeTodo
 } = todoSlice.actions
 
 export const selectTodoList = state => (
